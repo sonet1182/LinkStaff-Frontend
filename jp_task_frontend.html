@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    #container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      background: #fff;
+    }
+    #blueBox {
+      top: 50px;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      background-color: blue;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="blueBox"></div>
+    </div>
+
+    <script>
+      var id = null;
+      function moving() {
+        var element = document.getElementById("blueBox");
+        var pos = 50;
+        clearInterval(id);
+        id = setInterval(frame, 10);
+        function frame() {
+          if (pos == 800) {
+            clearInterval(id);
+          } else {
+            pos++;
+            element.style.top = pos + "px";
+            element.style.left = pos + "px";
+          }
+        }
+      }
+      moving();
+    </script>
+  </body>
+</html>
